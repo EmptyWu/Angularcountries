@@ -1,0 +1,13 @@
+.country-form {
+    width: 100%;
+}
+
+.country-input {
+    width: 100%;
+    max-width: 400px;
+}
+
+.country-input-xl {
+    width: 100%;
+    max-width: 900px;
+}

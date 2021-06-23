@@ -1,0 +1,158 @@
+<p>table2 works!</p>
+<form class="country-form" style="text-align: center;">
+    
+    
+    <p>
+    <!-- Name -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Name" value="{{ getSingleStringValue('name') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <!-- Alpha2Code & Alpha3Code -->
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="Alpha2Code" value="{{ getSingleStringValue('alpha2Code') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="Alpha3Code" value="{{ getSingleStringValue('alpha3Code') }}">
+        </mat-form-field>
+    </p>
+
+    <p>
+    <!-- Capital -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Capital" value="{{ getSingleStringValue('capital') }}">
+            <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- AltSpellings -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Alt Spellings" value="{{ getArrayObjectValue('altSpellings') }}">
+        </mat-form-field>
+    </p>
+
+    <p>
+        <!-- Region -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Region" value="{{ getSingleStringValue('region') }}">
+            <mat-icon matSuffix>location_on</mat-icon>
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- Subregion -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Subregion" value="{{ getSingleStringValue('subregion') }}">
+        </mat-form-field>
+    </p>
+        
+    <p>
+        <!-- Population -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Population" value="{{ getSingleValue('population') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- LatLng -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Lat/Lng" value="{{ getArrayObjectValue('latlng') }}">
+            <mat-icon matSuffix>location_searching</mat-icon>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <!-- Demonym -->
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="Demonym" value="{{ getSingleStringValue('demonym') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- Area -->
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="Area" value="{{ getSingleValue('area') }}">
+            <mat-icon matSuffix>explore</mat-icon>
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- Gini -->
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="Gini" value="{{ getSingleValue('gini') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+
+        <!-- Timezones -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Demonym" value="{{ getArrayObjectValue('timezones') }}">
+            <mat-icon matSuffix>access_time</mat-icon>
+        </mat-form-field>
+    
+    <p>
+        <!-- Borders -->
+        <mat-form-field class="country-input">
+            <input matInput placeholder="Area" value="{{ getArrayObjectValue('borders') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- NativeName -->
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="NativeName" value="{{ getSingleStringValue('nativeName') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- NumericCodes -->
+        <mat-form-field class="country-input-sm">
+            <input matInput placeholder="Numeric Code" value="{{ getSingleValue('numericCode') }}">
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+
+    <mat-accordion>
+        <mat-expansion-panel class="country-input-xl">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon matSuffix>g_translate</mat-icon>
+                &nbsp;Translation
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+    
+        <mat-list *ngFor="let translate of getStringifyObjectValue('translations')">
+            <mat-list-item >{{translate}}</mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel class="country-input-xl">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon matSuffix>language</mat-icon>
+                    &nbsp;Language
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+          
+            <mat-list *ngFor="let language of getStringifyArrayObjectValue('languages')">
+                <mat-list-item >{{language}}</mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+    
+        </mat-expansion-panel>
+            <mat-expansion-panel class="country-input-xl">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon matSuffix>monetization_on</mat-icon>
+                        &nbsp;Currencies
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+              
+                <mat-list *ngFor="let currencie of getStringifyArrayObjectValue('currencies')">
+                    <mat-list-item >{{currencie}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+    
+    <img src="{{ getSingleValue('flag') }}" style="width: 600px; height: 400px;" alt="{{ getSingleStringValue('name') }}"> 
+</form>
+<router-outlet></router-outlet>
+
+
