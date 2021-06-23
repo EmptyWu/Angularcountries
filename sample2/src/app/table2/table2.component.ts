@@ -10,7 +10,7 @@ import {AppService} from '../app.service';
 export class Table2Component implements OnInit {
   private country:  Array<object> = [];
 
-  public n1:string;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -18,7 +18,7 @@ export class Table2Component implements OnInit {
    ) {  }
 
   ngOnInit(): void {
-    console.log(this.n1);
+    
     this.getCountry();
   }
 
